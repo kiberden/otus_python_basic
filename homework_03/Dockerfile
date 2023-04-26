@@ -1,5 +1,5 @@
 # Запускать через docker-compose командой docker-compose up.
-# Доступ по адресу localhost:8000
+# Доступ по адресу localhost:8000 командой docker run -it -p 8000:8000 app
 FROM python:3.10-slim
 
 ENV PATH="${PATH}:/root/.local/bin"
@@ -9,14 +9,14 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 RUN poetry config virtualenvs.create false && \
     poetry self update
 
-WORKDIR /main
+RUN mkdir project
+WORKDIR /project
 
+COPY main.py ./
 COPY pyproject.toml ./
-RUN poetry install --no-root
 
-COPY start.sh ./
-RUN chmod +x ./start.sh
+RUN poetry install --no-root
 
 EXPOSE 8000
 
-CMD ["/bin/bash", "start.sh"]
+CMD uvicorn main:route --host=0.0.0.0 --port 8000
