@@ -1,5 +1,7 @@
 # Запускать через docker-compose командой docker-compose up.
-# Доступ по адресу localhost:8000 командой docker run -it -p 8000:8000 app
+# Доступ по адресу localhost:8000
+# Билдим образ docker build -t otus-app .
+# Запускаем образ docker run -it -p 8000:8000 otus-app
 FROM python:3.10-slim
 
 ENV PATH="${PATH}:/root/.local/bin"
