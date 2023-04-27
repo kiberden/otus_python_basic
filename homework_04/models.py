@@ -22,7 +22,7 @@ PG_CONN_URI = os.environ.get(
 ) or 'postgresql+asyncpg://postgres:password@localhost/postgres'
 
 engine = create_async_engine(PG_CONN_URI, echo=True)
-Base = declarative_base()
+Base = declarative_base(bind=engine)
 Session = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
 
 
