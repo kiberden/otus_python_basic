@@ -12,12 +12,11 @@
 - закрытие соединения с БД
 """
 import asyncio
-from sqlalchemy.ext.asyncio import async_session
 
 from typing import List
 
-from homework_04.jsonplaceholder_requests import get_users, get_posts
-from homework_04.models import User, Post, Base, engine, Session
+from jsonplaceholder_requests import get_users, get_posts
+from models import User, Post, Base, engine, Session
 
 
 async def create_tables():
