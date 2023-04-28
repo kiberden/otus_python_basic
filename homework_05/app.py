@@ -15,6 +15,7 @@ from flask import Flask
 
 
 def create_app():
+    """ Создание приложения. """
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(SECRET_KEY='dev')
 
@@ -26,11 +27,13 @@ app = create_app()
 
 @app.route('/')
 def index():
+    """ Обработка запроса на индексную, отдаем шаблона. """
     return flask.render_template('index.html')
 
 
 @app.route('/about/')
 def about():
+    """ Обработка запроса на страницу about, отдаем шаблона. """
     return flask.render_template('about.html')
 
 
