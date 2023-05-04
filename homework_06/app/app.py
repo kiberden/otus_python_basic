@@ -4,16 +4,8 @@ import os
 import flask
 from flask import Flask
 
-
-def create_app():
-    """ Создание приложения. """
-    app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(SECRET_KEY=os.getenv('SECRET_KEY'))
-
-    return app
-
-
-app = create_app()
+app = Flask(__name__, instance_relative_config=True)
+app.config.from_mapping(SECRET_KEY=os.getenv('SECRET_KEY'))
 
 
 @app.route('/')
@@ -22,5 +14,5 @@ def index():
     return flask.render_template('index.html')
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run()
