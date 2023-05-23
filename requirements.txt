@@ -5,6 +5,7 @@ certifi==2022.12.7
 docker==6.0.1
 exceptiongroup==1.1.1
 Faker==18.5.1
+Flask~=2.3.1
 idna==3.4
 iniconfig==2.0.0
 Mako==1.2.4
